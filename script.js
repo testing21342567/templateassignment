@@ -18,7 +18,7 @@ const fields = {
     input: document.getElementById("submittedTo"),
     output: document.getElementById("previewSubmittedTo"),
     fallback: "Teacher",
-    transform: (value) => value.split(",").map((part) => part.trim()).join("\n")
+    transform: (value) => value.split(",").map((part) => part.trim()).filter(Boolean).join("\n")
   },
   submittedBy: {
     input: document.getElementById("submittedBy"),
