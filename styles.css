@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: #efefef;
+  color: #141414;
+}
+
+.app-shell {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 16px;
+  min-height: 100vh;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+}
+
+.form-panel {
+  padding: 18px;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 1.3rem;
+}
+
+.helper-text {
+  margin: 0 0 14px;
+  color: #4e4e4e;
+  line-height: 1.45;
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.button-row {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 9px;
+  padding: 10px 12px;
+  cursor: pointer;
+  background: #202020;
+  color: #fff;
+  font-weight: 600;
+}
+
+button.ghost {
+  background: #efefef;
+  color: #151515;
+}
+
+.preview-panel {
+  padding: 18px;
+  display: grid;
+  place-items: center;
+  background: #ebebeb;
+}
+
+.cover-page {
+  width: min(100%, 860px);
+  aspect-ratio: 1 / 1.414;
+  background: #f7f7f7;
+  border: 1px solid #222;
+  padding: 6px;
+}
+
+.inner-border {
+  height: 100%;
+  border: 1px solid #222;
+  padding: 26px 36px 34px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.college-header {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-mark {
+  width: 64px;
+  height: 64px;
+}
+
+.college-text {
+  text-align: center;
+  transform: translateX(-36px);
+}
+
+.college-name {
+  margin: 0;
+  font-size: clamp(22px, 2vw, 46px);
+}
+
+.college-city {
+  margin: 4px 0 0;
+  font-size: clamp(15px, 1.3vw, 32px);
+}
+
+.center-content {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 26px;
+  padding: 0 24px;
+}
+
+.assignment-title {
+  margin: 0;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 74px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-align: center;
+  width: 100%;
+  min-height: 2.5em;
+  display: grid;
+  place-items: center;
+}
+
+.subject-line {
+  margin: 0;
+  font-size: 58px;
+  line-height: 1.15;
+  text-align: center;
+  width: 100%;
+  min-height: 1.7em;
+  display: grid;
+  place-items: center;
+}
+
+.submitted-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 18px;
+}
+
+.submitted-block {
+  max-width: 100%;
+}
+
+.submitted-block.right {
+  text-align: center;
+  justify-self: end;
+  width: min(320px, 100%);
+}
+
+.label {
+  margin: 0 0 4px;
+  font-size: clamp(20px, 1.5vw, 34px);
+}
+
+.value {
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.35;
+  min-height: 3.9em;
+  white-space: pre-line;
+}
+
+.value.underline {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .college-text {
+    transform: none;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .form-panel {
+    display: none;
+  }
+
+  .app-shell {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+
+  .preview-panel {
+    padding: 0;
+    border: none;
+    background: #fff;
+  }
+
+  .panel {
+    border: none;
+    border-radius: 0;
+  }
+
+  .cover-page {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+  }
+}
