@@ -208,7 +208,7 @@ button.ghost {
 }
 
 .submitted-block.right {
-  text-align: center;
+  text-align: right;
   justify-self: end;
   width: min(320px, 100%);
 }
@@ -220,7 +220,7 @@ button.ghost {
 
 .value {
   margin: 0;
-  font-size: 40px;
+  font-size: 37px;
   line-height: 1.35;
   min-height: 3.9em;
   white-space: pre-line;
@@ -346,10 +346,11 @@ button.ghost {
     width: 100%;
     justify-self: end;
     min-width: 0;
+    text-align: right;
   }
 
   .value {
-    font-size: 9.6mm;
+    font-size: 8.9mm;
     line-height: 1.25;
     overflow-wrap: anywhere;
     word-break: break-word;
