@@ -20,10 +20,10 @@
           <input id="subject" name="subject" type="text" maxlength="120" placeholder="e.g., Financial Accounting" required />
 
           <label for="submittedTo">Submitted To</label>
-          <input id="submittedTo" name="submittedTo" type="text" maxlength="120" placeholder="e.g., Teacher" required />
+          <input id="submittedTo" name="submittedTo" type="text" maxlength="160" placeholder="e.g., Teacher, Department, Course" required />
 
           <label for="submittedBy">Submitted By</label>
-          <input id="submittedBy" name="submittedBy" type="text" maxlength="200" placeholder="e.g., N Shashidhar Raman, 25SJCCC042, I B.Com A" required />
+          <input id="submittedBy" name="submittedBy" type="text" maxlength="200" placeholder="Student name, Register Number, Class" required />
 
           <div class="button-row">
             <button type="button" id="resetBtn" class="ghost">Reset</button>
@@ -37,12 +37,7 @@
           <div class="inner-border">
             <header class="college-header">
               <div class="logo-wrap" aria-hidden="true">
-                <svg viewBox="0 0 100 100" class="logo-mark" role="img">
-                  <circle cx="50" cy="50" r="46" fill="none" stroke="#6d6c9f" stroke-width="4" />
-                  <circle cx="50" cy="50" r="32" fill="none" stroke="#6d6c9f" stroke-width="2" />
-                  <path d="M27 52h46M50 29v46" stroke="#6d6c9f" stroke-width="2" />
-                  <text x="50" y="58" text-anchor="middle" font-size="13" fill="#6d6c9f" font-family="Georgia, serif">SJC</text>
-                </svg>
+                <img class="logo-image" src="logo.svg" alt="St. Joseph's College of Commerce logo" />
               </div>
               <div class="college-text">
                 <p class="college-name">St. Joseph’s College of Commerce (Autonomous)</p>
@@ -58,12 +53,12 @@
             <footer class="submitted-section">
               <div class="submitted-block left">
                 <p class="label">Submitted to:</p>
-                <p id="previewSubmittedTo" class="value underline fit-text" data-min-size="18" data-max-size="44">Teacher</p>
+                <p id="previewSubmittedTo" class="value fit-text" data-min-size="18" data-max-size="44">Teacher</p>
               </div>
 
               <div class="submitted-block right">
                 <p class="label">Submitted by:</p>
-                <p id="previewSubmittedBy" class="value fit-text" data-min-size="16" data-max-size="42">N Shashidhar Raman<br />25SJCCC042<br />I B.Com A</p>
+                <p id="previewSubmittedBy" class="value fit-text" data-min-size="16" data-max-size="42">Student name<br />Register Number<br />Class</p>
               </div>
             </footer>
           </div>
