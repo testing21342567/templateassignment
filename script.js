@@ -24,9 +24,13 @@ const fields = {
     input: document.getElementById("submittedBy"),
     output: document.getElementById("previewSubmittedBy"),
     fallback: "Student name\nRegister Number\nClass",
-    transform: (value) => value.split(",").map((part) => part.trim()).join("\n")
+    transform: (value) => value.split(",").map((part) => part.trim()).filter(Boolean).join("\n")
   }
 };
+
+const formattingState = Object.fromEntries(
+  Object.keys(fields).map((fieldName) => [fieldName, { sizeOffset: 0, bold: false, italic: false, underline: false }])
+);
 
 function fitTextToBox(element) {
   const min = Number(element.dataset.minSize || 14);
@@ -39,19 +43,57 @@ function fitTextToBox(element) {
   ) {
     element.style.fontSize = `${parseFloat(element.style.fontSize) - 1}px`;
   }
+
+  return parseFloat(element.style.fontSize);
+}
+
+function applyFormatting(fieldName) {
+  const state = formattingState[fieldName];
+  const { output } = fields[fieldName];
+  const min = Number(output.dataset.minSize || 14);
+  const max = Number(output.dataset.maxSize || 48);
+
+  const fittedSize = fitTextToBox(output);
+  const adjustedSize = Math.min(max + 22, Math.max(min - 10, fittedSize + state.sizeOffset));
+
+  output.style.fontSize = `${adjustedSize}px`;
+  output.style.fontWeight = state.bold ? "700" : "";
+  output.style.fontStyle = state.italic ? "italic" : "normal";
+  output.style.textDecoration = state.underline ? "underline" : "none";
+  output.style.textUnderlineOffset = state.underline ? "0.12em" : "";
 }
 
 function updatePreview() {
-  Object.values(fields).forEach(({ input, output, fallback, transform }) => {
+  Object.entries(fields).forEach(([fieldName, { input, output, fallback, transform }]) => {
     const rawValue = input.value.trim() || fallback;
     const value = transform ? transform(rawValue) : rawValue;
     output.textContent = value;
-    fitTextToBox(output);
+    applyFormatting(fieldName);
   });
 }
 
 Object.values(fields).forEach(({ input }) => {
   input.addEventListener("input", updatePreview);
+});
+
+document.querySelectorAll(".field-tools").forEach((toolRow) => {
+  const fieldName = toolRow.dataset.field;
+
+  toolRow.querySelectorAll(".tool-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const action = button.dataset.action;
+      const state = formattingState[fieldName];
+
+      if (action === "increase") state.sizeOffset += 2;
+      if (action === "decrease") state.sizeOffset -= 2;
+      if (action === "bold") state.bold = !state.bold;
+      if (action === "italic") state.italic = !state.italic;
+      if (action === "underline") state.underline = !state.underline;
+
+      button.classList.toggle("active", action === "bold" ? state.bold : action === "italic" ? state.italic : action === "underline" ? state.underline : false);
+      updatePreview();
+    });
+  });
 });
 
 window.addEventListener("resize", updatePreview);
@@ -62,6 +104,13 @@ printBtn.addEventListener("click", () => {
 
 resetBtn.addEventListener("click", () => {
   form.reset();
+  Object.values(formattingState).forEach((state) => {
+    state.sizeOffset = 0;
+    state.bold = false;
+    state.italic = false;
+    state.underline = false;
+  });
+  document.querySelectorAll(".tool-btn.active").forEach((button) => button.classList.remove("active"));
   updatePreview();
 });
 
