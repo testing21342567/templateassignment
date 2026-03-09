@@ -263,6 +263,8 @@ button.ghost {
 
   .app-shell {
     display: block;
+    width: 210mm;
+    height: 297mm;
     max-width: none;
     min-height: 0;
     margin: 0;
@@ -270,8 +272,10 @@ button.ghost {
   }
 
   .preview-panel {
+    width: 210mm;
+    height: 297mm;
     margin: 0;
-    padding: 0;
+    padding: 5mm;
     border: none;
     border-radius: 0;
     background: #fff;
@@ -286,11 +290,11 @@ button.ghost {
   }
 
   .cover-page {
-    width: 210mm;
-    height: 297mm;
+    width: 200mm;
+    height: 287mm;
     margin: 0;
     border: 1px solid #111;
-    padding: 3mm;
+    padding: 2mm;
     box-shadow: none;
     background: #fff;
     break-inside: avoid;
@@ -299,24 +303,53 @@ button.ghost {
 
   .inner-border {
     border: 1px solid #111;
+    height: 100%;
     padding: 5mm 7mm 7mm;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .college-header {
+    grid-template-columns: 18mm 1fr;
+    gap: 4mm;
+    align-items: center;
   }
 
   .logo-wrap {
-    width: 20mm;
-    height: 20mm;
+    width: 17mm;
+    height: 17mm;
+  }
+
+  .college-text {
+    text-align: center;
+    padding-right: 4mm;
   }
 
   .college-name {
-    font-size: 8.3mm;
+    font-size: 7.2mm;
     line-height: 1.08;
     letter-spacing: 0;
     white-space: nowrap;
   }
 
   .college-city {
-    font-size: 5.2mm;
+    font-size: 4.8mm;
     line-height: 1.1;
   }
-}
 
+  .submitted-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+  }
+
+  .submitted-block.right {
+    width: 100%;
+    justify-self: end;
+  }
+
+  .value {
+    font-size: 9.6mm;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
