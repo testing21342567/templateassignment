@@ -220,7 +220,7 @@ button.ghost {
 
 .value {
   margin: 0;
-  font-size: 37px;
+  font-size: 35px;
   line-height: 1.35;
   min-height: 3.9em;
   white-space: pre-line;
@@ -350,7 +350,7 @@ button.ghost {
   }
 
   .value {
-    font-size: 8.9mm;
+    font-size: 23pt;
     line-height: 1.25;
     overflow-wrap: anywhere;
     word-break: break-word;
