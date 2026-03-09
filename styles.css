@@ -226,6 +226,16 @@ button.ghost {
   white-space: pre-line;
 }
 
+
+.assignment-title,
+.subject-line,
+.value {
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  transition: font-size 0.15s ease;
+}
+
 @media (max-width: 980px) {
   .app-shell {
     grid-template-columns: 1fr;
