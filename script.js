@@ -17,12 +17,13 @@ const fields = {
   submittedTo: {
     input: document.getElementById("submittedTo"),
     output: document.getElementById("previewSubmittedTo"),
-    fallback: "Teacher"
+    fallback: "Teacher",
+    transform: (value) => value.split(",").map((part) => part.trim()).join("\n")
   },
   submittedBy: {
     input: document.getElementById("submittedBy"),
     output: document.getElementById("previewSubmittedBy"),
-    fallback: "Your Name\nRoll Number\nClass",
+    fallback: "Student name\nRegister Number\nClass",
     transform: (value) => value.split(",").map((part) => part.trim()).join("\n")
   }
 };
