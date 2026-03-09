@@ -244,17 +244,19 @@ button.ghost {
 
 @page {
   size: A4 portrait;
-  margin: 0;
+  margin: 8mm;
 }
 
 @media print {
   html,
   body {
-    width: 210mm;
-    height: 297mm;
     margin: 0;
     padding: 0;
+    width: auto;
+    height: auto;
     background: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .form-panel {
@@ -263,8 +265,6 @@ button.ghost {
 
   .app-shell {
     display: block;
-    width: 210mm;
-    height: 297mm;
     max-width: none;
     min-height: 0;
     margin: 0;
@@ -272,10 +272,8 @@ button.ghost {
   }
 
   .preview-panel {
-    width: 210mm;
-    height: 297mm;
     margin: 0;
-    padding: 5mm;
+    padding: 0;
     border: none;
     border-radius: 0;
     background: #fff;
@@ -290,13 +288,14 @@ button.ghost {
   }
 
   .cover-page {
-    width: 200mm;
-    height: 287mm;
+    width: 100%;
+    height: calc(297mm - 16mm);
     margin: 0;
     border: 1px solid #111;
     padding: 2mm;
     box-shadow: none;
     background: #fff;
+    box-sizing: border-box;
     break-inside: avoid;
     page-break-inside: avoid;
   }
@@ -306,10 +305,11 @@ button.ghost {
     height: 100%;
     padding: 5mm 7mm 7mm;
     grid-template-rows: auto 1fr auto;
+    box-sizing: border-box;
   }
 
   .college-header {
-    grid-template-columns: 18mm 1fr;
+    grid-template-columns: 18mm minmax(0, 1fr);
     gap: 4mm;
     align-items: center;
   }
@@ -321,11 +321,12 @@ button.ghost {
 
   .college-text {
     text-align: center;
-    padding-right: 4mm;
+    padding-right: 3mm;
+    min-width: 0;
   }
 
   .college-name {
-    font-size: 7.2mm;
+    font-size: 7.4mm;
     line-height: 1.08;
     letter-spacing: 0;
     white-space: nowrap;
@@ -337,13 +338,14 @@ button.ghost {
   }
 
   .submitted-section {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 8mm;
   }
 
   .submitted-block.right {
     width: 100%;
     justify-self: end;
+    min-width: 0;
   }
 
   .value {
