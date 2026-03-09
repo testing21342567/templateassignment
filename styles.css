@@ -43,7 +43,12 @@ h1 {
 
 form {
   display: grid;
-  gap: 10px;
+  gap: 12px;
+}
+
+.field-group {
+  display: grid;
+  gap: 8px;
 }
 
 label {
@@ -59,10 +64,10 @@ input {
   font-size: 0.95rem;
 }
 
-.button-row {
-  margin-top: 8px;
+.field-tools {
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 button {
@@ -73,6 +78,28 @@ button {
   background: #202020;
   color: #fff;
   font-weight: 600;
+}
+
+.tool-btn {
+  padding: 6px 8px;
+  min-width: 36px;
+  border: 1px solid #c8c8c8;
+  background: #f6f6f6;
+  color: #202020;
+  border-radius: 7px;
+  font-size: 0.82rem;
+}
+
+.tool-btn.active {
+  background: #202020;
+  color: #fff;
+  border-color: #202020;
+}
+
+.button-row {
+  margin-top: 8px;
+  display: flex;
+  gap: 10px;
 }
 
 button.ghost {
@@ -202,10 +229,6 @@ button.ghost {
 @media (max-width: 980px) {
   .app-shell {
     grid-template-columns: 1fr;
-  }
-
-  .college-text {
-    transform: none;
   }
 }
 
