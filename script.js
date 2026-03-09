@@ -57,7 +57,7 @@ function applyFormatting(fieldName) {
   const adjustedSize = Math.min(max + 22, Math.max(min - 10, fittedSize + state.sizeOffset));
 
   output.style.fontSize = `${adjustedSize}px`;
-  output.style.fontWeight = state.bold ? "700" : "";
+  output.style.fontWeight = state.bold ? "800" : "400";
   output.style.fontStyle = state.italic ? "italic" : "normal";
   output.style.textDecoration = state.underline ? "underline" : "none";
   output.style.textUnderlineOffset = state.underline ? "0.12em" : "";
@@ -84,8 +84,8 @@ document.querySelectorAll(".field-tools").forEach((toolRow) => {
       const action = button.dataset.action;
       const state = formattingState[fieldName];
 
-      if (action === "increase") state.sizeOffset += 2;
-      if (action === "decrease") state.sizeOffset -= 2;
+      if (action === "increase") state.sizeOffset += 6;
+      if (action === "decrease") state.sizeOffset -= 6;
       if (action === "bold") state.bold = !state.bold;
       if (action === "italic") state.italic = !state.italic;
       if (action === "underline") state.underline = !state.underline;
