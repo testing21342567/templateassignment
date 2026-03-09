@@ -110,9 +110,15 @@ button.ghost {
   gap: 12px;
 }
 
-.logo-mark {
+.logo-wrap {
   width: 64px;
   height: 64px;
+}
+
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .college-text {
@@ -191,11 +197,6 @@ button.ghost {
   line-height: 1.35;
   min-height: 3.9em;
   white-space: pre-line;
-}
-
-.value.underline {
-  text-decoration: underline;
-  text-underline-offset: 4px;
 }
 
 @media (max-width: 980px) {
